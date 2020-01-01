@@ -163,8 +163,8 @@
                                 <td><h6><?= $p->product_id ?></h6> </td>
                             </tr>
                             <tr>
-                                <td>adsadasdasdasda</td>
-                                <td>dasdasdasdaddadasda</td>
+                                <td><?= $p->product_material ?></td>
+                                <td><?= $p->product_desc ?></td>
                                 <?php foreach ($product_image as $pi) {
                                     if ($pi->product_image_id_product==$p->product_id) {
                                         echo "<td><img class='rounded-circle' src='".base_url()."assets/img/cloth/".$pi->product_image_name."'></td>";
