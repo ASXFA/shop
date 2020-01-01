@@ -99,6 +99,16 @@
                                 </select></td>
                             </tr>
                             <tr>
+                                <td>Product Material</td>
+                                <td> : </td>
+                                <td><input type="text" name="product_material" class="form-control" required=""></td>
+                            </tr>
+                            <tr>
+                                <td>Description</td>
+                                <td> : </td>
+                                <td><textarea class="form-control" name="product_desc" style="width: 450px" required=""></textarea></td>
+                            </tr>
+                            <tr>
                                 <td>Price</td>
                                 <td> : </td>
                                 <td><div class="input-group">
@@ -164,10 +174,10 @@
                             </tr>
                             <tr>
                                 <td><?= $p->product_material ?></td>
-                                <td><?= $p->product_desc ?></td>
+                                <td style="text-align: justify;"><?= $p->product_desc ?></td>
                                 <?php foreach ($product_image as $pi) {
                                     if ($pi->product_image_id_product==$p->product_id) {
-                                        echo "<td><img class='rounded-circle' src='".base_url()."assets/img/cloth/".$pi->product_image_name."'></td>";
+                                        echo "<td><img class='thumbnail' src='".base_url()."assets/img/cloth/".$pi->product_image_name."'></td>";
                                     }
                                 } ?>
                             </tr>
