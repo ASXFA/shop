@@ -1,8 +1,5 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<html class="no-js" lang="">
 <head>
     <?php include 'layout/header.php'?>
 </head>
@@ -68,7 +65,7 @@
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
-            
+        <!-- Modal add -->
         <div id="modaladd" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -163,7 +160,7 @@
                         <h4 class="modal-title">Detail Product</h4>
                     </div>
                     <div class="modal-body">
-                        <table>
+                        <table class="table-stats table">
                             <tr>
                                 <td><h6><b><?= $p->product_name ?></b></h6> </td>
                                 <td>(<?= "$ " . number_format($p->product_price,2,',','.'); ?>)</td>
@@ -171,10 +168,10 @@
                             </tr>
                             <tr>
                                 <td><h6><?= $p->product_id ?></h6> </td>
+                                <td><b>Material : </b><?= $p->product_material ?></td>
                             </tr>
                             <tr>
-                                <td><?= $p->product_material ?></td>
-                                <td style="text-align: justify;"><?= $p->product_desc ?></td>
+                                <td colspan="2" style="text-align: justify;"><?= $p->product_desc ?></td>
                                 <?php foreach ($product_image as $pi) {
                                     if ($pi->product_image_id_product==$p->product_id) {
                                         echo "<td><img class='thumbnail' src='".base_url()."assets/img/cloth/".$pi->product_image_name."'></td>";
@@ -239,6 +236,11 @@
                                     <input type="text" name="product_price" class="form-control" value="<?= $p->product_price ?>" >
                                 </div></td>
                             </tr>
+                            <?php foreach ($product_image as $pi) {
+                                    if ($pi->product_image_id_product==$p->product_id) {
+                                        echo "<td>Curent Image </td> : <td></td><td><img class='thumbnail' src='".base_url()."assets/img/cloth/".$pi->product_image_name."'></td>";
+                                    }
+                                } ?>
                             <tr>
                                 <td>Current Image</td>
                                 <td> : </td>
